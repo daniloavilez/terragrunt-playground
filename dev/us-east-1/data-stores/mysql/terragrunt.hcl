@@ -19,6 +19,6 @@ EOF
 
 inputs = {
     database_name = "mysql_dev"
-    db_password = "batatinha"
+    db_password = "super_secret_password"
     instance_class = "db.t2.micro"
 }
