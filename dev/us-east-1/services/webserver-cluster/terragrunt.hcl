@@ -1,7 +1,13 @@
-// include "root" {
-//     path = find_in_parent_folders()
-// }
+include "root" {
+    path = find_in_parent_folders()
+}
 
-// terraform {
-//     source = "github.com:daniloavilez/terraform-playground.git//modules/services/webserver-cluster"
-// }
+# Include the envcommon configuration for the component. The envcommon configuration contains settings that are common
+# for the component across all environments.
+include "envcommon" {
+  path = "${dirname(find_in_parent_folders())}/_envcommon/webserver-cluster.hcl"
+}
+
+dependencies {
+    paths = ["../../data-stores/mysql"]
+}
